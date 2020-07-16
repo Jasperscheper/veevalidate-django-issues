@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+{% load lazy_render_bundle from lazy_webpack_loader %}
+
+
+{% block content %}
+
+    <h1>Testing vee-validate with and without vue/dist</h1>
+
+    <hr>
+
+    <br />
+
+    <div id="form-no-dist">
+        <app-second msg="test"></app-second>
+    </div>
+
+    <div id="form_with_dist">
+        <app msg="test"></app>
+    </div>
+    
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'index' %}
+    {% render_bundle 'main' %}
+
+
+    <script>
+      
+    </script>
+
+{% endblock %}
